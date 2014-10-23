@@ -10,8 +10,12 @@ var bodyParser = require('body-parser');
 var Parse = require('parse').Parse;
 Parse.initialize(process.env.PARSE_APP_ID, process.env.PARSE_JS_API_KEY);
 
+var passport = require('passport');
+require('lib/auth/passport.js')(passport);
+
 var routes = require('lib/routes/index');
 var api = require('lib/routes/api')(Parse);
+var auth = require('lib/routes/auth.js')(passport);
 
 var app = express();
 
@@ -28,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/auth', auth);
 app.use('/api', api);
 
 // catch 404 and forward to error handler
