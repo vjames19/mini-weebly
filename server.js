@@ -1,3 +1,5 @@
+'use strict';
+
 var debug = require('debug')('mini-weebly');
 
 var express = require('express');
@@ -11,7 +13,7 @@ var Parse = require('parse').Parse;
 Parse.initialize(process.env.PARSE_APP_ID, process.env.PARSE_JS_API_KEY);
 
 var passport = require('passport');
-require('lib/auth/passport.js')(passport);
+require('lib/auth/passport.js')(passport, Parse);
 
 var routes = require('lib/routes/index');
 var api = require('lib/routes/api')(Parse);
