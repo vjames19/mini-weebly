@@ -15,10 +15,6 @@ Parse.initialize(process.env.PARSE_APP_ID, process.env.PARSE_JS_API_KEY);
 var passport = require('passport');
 require('lib/auth/passport.js')(passport, Parse);
 
-var routes = require('lib/routes/index');
-var api = require('lib/routes/api')(Parse);
-var auth = require('lib/routes/auth.js')(passport);
-
 var app = express();
 
 // view engine setup
@@ -31,11 +27,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
+var routes = require('lib/routes')(Parse, passport);
 app.use('/', routes);
-app.use('/auth', auth);
-app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
