@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    // build:css app.css
+    link(rel='stylesheet', href='app.css')
+    // endbuild
+  body(ng-app="weeblyApp")
+    h1 Welcome to Weebly.
+
+
+    // build:js vendor.js
+    // bower:js
+    script(src='bower_components/angular/angular.js')
+    // endbower
+    // endbuild
+    // build:js app.js
+    script(src="app.js")
+    // endbuild
+
