@@ -1,0 +1,21 @@
+.btn {
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-image: none;
+  border: 0px solid transparent;
+  border-radius: 5px;
+}
+
+
+@mixin btn-variant($color) {
+  background-color: $color;
+  border-color: $color;
+}
+
+
+

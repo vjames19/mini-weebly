@@ -1,0 +1,86 @@
+@import 'button';
+
+$sidebar-background-color: #222F3E;
+$sidebar-header-background-color: #4F657D;
+$sidebar-header-color: #8BA3BE;
+
+.sidebar {
+  background-color: $sidebar-background-color;
+  height: 100%;
+  width: 240px;
+
+  .header {
+    width: 100%;
+    padding: 8px 0px;
+    background-color: $sidebar-header-background-color;
+    color: $sidebar-header-color;
+
+    text-transform: uppercase;
+    text-align: center;
+
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+  }
+
+  .templates-container {
+    width: 75%;
+    margin: 20px auto;
+  }
+
+  .btn-page {
+    @extend .btn;
+    width: 100%;
+    height: 40px;
+    padding: 10px 10px;
+    text-align: initial;
+    border: 2px solid rgba(0, 0, 0, 0);
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .btn-add {
+    background-color: inherit;
+    border-color: $sidebar-header-background-color;
+
+    input {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      margin: 0;
+      padding: 0;
+      outline: 0;
+      color: #FFF;
+      text-transform: uppercase;
+    }
+  }
+
+  .btn-selected {
+    @include btn-variant($sidebar-header-background-color);
+  }
+
+  .btn-default {
+    @include btn-variant(#3F5168);
+  }
+
+  .btn-remove {
+    @include btn-variant(#CD5452);
+  }
+
+  .elements {
+    width: 100%;
+    background-color: #283749;
+
+    .element-container {
+      float: left;
+      width: 50%;
+      height: 110px;
+      border: 1px solid #000;
+    }
+  }
+}
+
+.cf {
+  @include clearfix;
+}

@@ -1,7 +1,9 @@
 @import 'bourbon';
 
-@import 'normalize';
-@import 'fonts';
+@import 'styles/normalize';
+@import 'styles/fonts';
+@import 'styles/sidebar';
+
 
 html, body {
   margin: 0;
@@ -16,9 +18,6 @@ html, body {
 }
 
 $header-background-color: #4278BE;
-$sidebar-background-color: #222F3E;
-$sidebar-header-background-color: #3F5168;
-$sidebar-header-color: #8BA3BE;
 
 .header {
   width: 100%;
@@ -26,24 +25,5 @@ $sidebar-header-color: #8BA3BE;
 
   .logo {
     margin-left: 15px;
-  }
-}
-
-.sidebar {
-  background-color: $sidebar-background-color;
-  height: 100%;
-  width: 240px;
-
-  .header {
-    width: 100%;
-    padding: 8px 0px;
-    background-color: $sidebar-header-background-color;
-    color: $sidebar-header-color;
-
-    text-transform: uppercase;
-    text-align: center;
-
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
   }
 }
