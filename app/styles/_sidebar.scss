@@ -70,9 +70,9 @@ $sidebar-header-color: #8BA3BE;
 
   .elements {
     width: 100%;
-    $elements-background-color: #283749;
-    background-color: $elements-background-color;
     cursor: move;
+
+    $elements-background-color: lighten($sidebar-background-color, 10%);
 
     .element-container {
       float: left;
@@ -81,6 +81,7 @@ $sidebar-header-color: #8BA3BE;
       border: 1px solid #000;
       padding: 20px 35px;
       text-align: center;
+      background-color: $elements-background-color;
 
       @include transition(background-color 0.5s ease);
 
