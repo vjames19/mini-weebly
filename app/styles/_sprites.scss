@@ -1,0 +1,35 @@
+@import 'bourbon';
+
+@mixin sprite($background-image, $width, $height) {
+  background-image: $background-image;
+  background-repeat: no-repeat;
+  width: $width;
+  height: $height;
+}
+
+@mixin sprite-position($background-position) {
+  background-position: $background-position;
+}
+
+.element-icons {
+  @include sprite(url('/images/Element-Icons.png'), 52px, 56px);
+
+
+  &.title-icon {
+    @include sprite-position(-9px -8px);
+  }
+
+  &.text-icon {
+    @include sprite-position(-63px -8px);
+  }
+
+  &.image-icon {
+    @include sprite-position(-117px -8px);
+  }
+
+  &.nav-icon {
+    @include sprite-position(-171px -8px);
+  }
+}
+
+

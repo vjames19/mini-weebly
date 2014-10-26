@@ -77,6 +77,13 @@ $sidebar-header-color: #8BA3BE;
       width: 50%;
       height: 110px;
       border: 1px solid #000;
+      padding: 20px 35px;
+      text-align: center;
+
+      h1 {
+        font-size: 12px;
+        color: $sidebar-header-color;
+      }
     }
   }
 }
