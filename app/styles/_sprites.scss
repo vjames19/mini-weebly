@@ -11,24 +11,38 @@
   background-position: $background-position;
 }
 
+@mixin horizontal-icon-set($icons, $width, $offset, $y-pos) {
+  $i: 0;
+  @each $icon in $icons {
+    $x-pos: -$width*$i - $offset;
+    &.#{$icon}-icon {
+      @include sprite-position($x-pos $y-pos);
+    }
+    $i: $i + 1;
+  }
+}
+
 .element-icons {
   @include sprite(url('/images/Element-Icons.png'), 52px, 56px);
 
+  $element-icons: title text image nav;
+  @include horizontal-icon-set($element-icons, 54px, 9px, -8px);
+}
 
-  &.title-icon {
-    @include sprite-position(-9px -8px);
-  }
+.edit-icons {
+  @include sprite(url('/images/Add-Delete-Edit-Icons.png'), 13px, 13px);
 
-  &.text-icon {
-    @include sprite-position(-63px -8px);
-  }
+  $edit-icons: add edit remove;
+  $sets: (light, -13px), (normal, -32px), (dark, -51px);
 
-  &.image-icon {
-    @include sprite-position(-117px -8px);
-  }
+  @each $set in $sets {
+    $icons: ();
+    @each $icon in $edit-icons {
+      $icon-name: #{nth($set, 1)}-#{$icon};
+      $icons: append($icons, $icon-name);
+    }
 
-  &.nav-icon {
-    @include sprite-position(-171px -8px);
+    @include horizontal-icon-set($icons, 21px, 13px, nth($set, 2));
   }
 }
 

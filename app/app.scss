@@ -27,3 +27,7 @@ $header-background-color: #4278BE;
     margin-left: 15px;
   }
 }
+
+.cf {
+  @include clearfix;
+}
