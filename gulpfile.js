@@ -5,6 +5,7 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var map = require('map-stream');
+var bourbon = require('node-bourbon');
 
 var ignoreComponents = '!**/{node_modules,bower_components}/**';
 
@@ -20,7 +21,10 @@ gulp.task('server', ['watch'], function () {
 
 gulp.task('styles', function() {
   return gulp.src([ignoreComponents, 'app/**/*.scss'])
-      .pipe($.sass({style: 'expanded'}))
+      .pipe($.sass({
+        style: 'expanded',
+        includePaths: bourbon.includePaths
+      }))
       .pipe($.autoprefixer('last 1 version'))
       .pipe(gulp.dest('.tmp'))
       .pipe($.size());
@@ -89,7 +93,7 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
 });
 
 gulp.task('fonts',  function () {
-  return gulp.src('app/fonts/*.{eot,svg,ttf,woff}')
+  return gulp.src('app/fonts/*.{eot,svg,ttf,woff,otf}')
       .pipe(gulp.dest('dist/fonts'))
       .pipe($.size());
 });

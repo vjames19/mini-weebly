@@ -5,8 +5,13 @@ html
     link(rel='stylesheet', href='app.css')
     // endbuild
   body(ng-app="weeblyApp")
-    h1 Welcome to Weebly.
 
+    .header
+      img.logo(src="/images/Weebly-Logo.png")
+
+    .sidebar
+      .header
+        | Templates
 
     // build:js vendor.js
     // bower:js
@@ -16,4 +21,3 @@ html
     // build:js app.js
     script(src="app.js")
     // endbuild
-

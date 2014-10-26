@@ -1,8 +1,49 @@
+@import 'bourbon';
+
 @import 'normalize';
+@import 'fonts';
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: proxima-nova;
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+$header-background-color: #4278BE;
+$sidebar-background-color: #222F3E;
+$sidebar-header-background-color: #3F5168;
+$sidebar-header-color: #8BA3BE;
+
+.header {
+  width: 100%;
+  background-color: $header-background-color;
+
+  .logo {
+    margin-left: 15px;
+  }
+}
+
+.sidebar {
+  background-color: $sidebar-background-color;
+  height: 100%;
+  width: 240px;
+
+  .header {
+    width: 100%;
+    padding: 8px 0px;
+    background-color: $sidebar-header-background-color;
+    color: $sidebar-header-color;
+
+    text-transform: uppercase;
+    text-align: center;
+
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+  }
 }
